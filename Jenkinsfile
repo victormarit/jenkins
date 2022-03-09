@@ -13,6 +13,17 @@ pipeline {
         }
 
         //Faire les tests
+
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
         //Execute jar
         stage('Run'){
             steps{
