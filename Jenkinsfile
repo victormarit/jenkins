@@ -22,7 +22,7 @@ pipeline {
         //Copy file html on the server
         stage('Move HTML content in apache2'){
             steps{
-                sh 'mv -r ./out/ /var/www/html '
+                sh 'mv -R ./out/* /var/www/html '
             }
         }
 
