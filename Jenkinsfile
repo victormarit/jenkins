@@ -5,10 +5,27 @@ pipeline {
         }
     }
     stages {
+        //Build jar
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+
+        //Faire les tests
+        //Execute jar
+        stage('Run'){
+            steps{
+                sh 'java -jar  ./target/netflix-1.0.0.jar  netflix_titles.csv'
+            }
+        }
+        //Copy file html on the server
+        //stage('Upload on web server'){
+        //    steps{
+        //        sh ''
+        //    }
+        //}
+
+
     }
 }
