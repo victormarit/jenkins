@@ -41,7 +41,12 @@ pipeline {
             }
         }
 
-        //Clean
+        //Clean Workplace
+        stage("clear") {
+            steps {
+                cleanWs deleteDirs: true
+            }
+        }
 
     }
 }
