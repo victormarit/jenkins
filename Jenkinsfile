@@ -20,11 +20,11 @@ pipeline {
             }
         }
         //Copy file html on the server
-        //stage('Upload on web server'){
-        //    steps{
-        //        sh ''
-        //    }
-        //}
+        stage('Move HTML content in apache2'){
+            steps{
+                sh 'mv -r ./out/ cd /var/www/html '
+            }
+        }
 
 
     }
