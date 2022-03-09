@@ -19,12 +19,7 @@ pipeline {
                 sh 'java -jar  ./target/netflix-1.0.0.jar  netflix_titles.csv'
             }
         }
-        //Copy file html on the server
-        stage('Move HTML content in apache2'){
-            steps{
-                sh 'mv ./out/* /var/www/html '
-            }
-        }
+
 
 
     }
