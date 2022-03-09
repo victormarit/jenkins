@@ -24,6 +24,9 @@ pipeline {
                 }
             }
         }
+
+        //SonarQube
+
         //Execute jar
         stage('Run'){
             steps{
@@ -37,6 +40,8 @@ pipeline {
                 sh 'mv ./out /out'
             }
         }
+
+        //Clean
 
     }
 }
