@@ -26,9 +26,9 @@ pipeline {
 
 
         //SonarQube
-        
+
         //Jacoco
-        stage('Test') {
+        stage('Jacoco') {
             steps(
                 step([$class: 'JacocoPublisher'])
             )
