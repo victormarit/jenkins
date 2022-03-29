@@ -26,7 +26,13 @@ pipeline {
 
 
         //SonarQube
-        //regarder pour jacoco
+        
+        //Jacoco
+        stage('Test') {
+            steps(
+                step([$class: 'JacocoPublisher'])
+            )
+        }
 
         //Execute jar
         stage('Run'){
