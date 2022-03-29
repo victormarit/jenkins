@@ -12,8 +12,7 @@ pipeline {
             }
         }
 
-        //Faire les tests
-
+        //Execute unit test
         stage('Test') {
             steps {
                 sh 'mvn test'
@@ -25,7 +24,9 @@ pipeline {
             }
         }
 
+
         //SonarQube
+        //regarder pour jacoco
 
         //Execute jar
         stage('Run'){
