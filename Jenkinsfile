@@ -28,11 +28,11 @@ pipeline {
         //SonarQube
 
         //Jacoco
-        stage('Jacoco') {
-            steps(
-                step([$class: 'JacocoPublisher'])
-            )
-        }
+        //stage('Jacoco') {
+        //    steps(
+        //        step([$class: 'JacocoPublisher'])
+        //    )
+        //}
 
         //Execute jar
         stage('Run'){
