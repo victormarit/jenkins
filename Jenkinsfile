@@ -27,12 +27,6 @@ pipeline {
 
         //SonarQube
 
-        //Jacoco
-        //stage('Jacoco') {
-        //    steps(
-        //        step([$class: 'JacocoPublisher'])
-        //    )
-        //}
 
         //Execute jar
         stage('Run'){
@@ -49,10 +43,15 @@ pipeline {
         }
 
         //Clean Workplace
-        stage("clear") {
-            steps {
+        post {
+            steps(
+                step([$class: 'JacocoPublisher'])
+            )
+            success {
                 cleanWs deleteDirs: true
             }
+
+
         }
 
     }
