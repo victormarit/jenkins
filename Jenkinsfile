@@ -28,7 +28,7 @@ pipeline {
         //Execute jar
         stage('Run'){
             steps{
-                sh 'java -jar  ./target/netflix-1.0.0.jar  netflix_titles.csv'
+                sh 'java -jar  ./target/sonar_netflix_victor-1.0.0.jar  netflix_titles.csv'
             }
         }
         //Copy file html on the server
