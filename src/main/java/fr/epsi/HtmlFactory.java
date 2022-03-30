@@ -1,4 +1,4 @@
-package fr.epsi.sonar_netflix_victor;
+package fr.epsi;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;

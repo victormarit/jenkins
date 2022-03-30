@@ -1,4 +1,4 @@
-package fr.epsi.sonar_netflix_victor;
+package fr.epsi;
 
 import java.io.*;
 import java.nio.file.Files;
