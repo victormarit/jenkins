@@ -5,12 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>fr.epsi</groupId>
-    <artifactId>netflix</artifactId>
+    <artifactId>sonar_netflix_victor</artifactId>
     <version>1.0.0</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <sonar.projectKey>jenkins_test_victor</sonar.projectKey>
     </properties>
 
     <dependencies>
@@ -19,6 +20,11 @@
             <artifactId>junit</artifactId>
             <version>4.13.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.9.1.2184</version>
         </dependency>
     </dependencies>
 
@@ -64,7 +70,20 @@
                 </executions>
             </plugin>
         </plugins>
-
     </build>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                    https://sonarqube.gregsvc.fr
+                </sonar.host.url>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

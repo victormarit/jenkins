@@ -41,6 +41,14 @@ pipeline {
                 sh 'mv ./out /out'
             }
         }
+
+        stage('SonarQube Analysis'){
+            steps{
+                withSonarQubeEnv('sonar_netflix'){
+                    sh "mvn verify sonar:sonar"
+                }
+            }
+        }
     }
     post {
         cleanup {
