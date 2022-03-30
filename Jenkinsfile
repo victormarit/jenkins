@@ -32,28 +32,39 @@ pipeline {
             }
         }
 
-        //Copy file ssh
-        sshPublisher(
-            continueOnError: false, failOnError: true,
-            publishers: [
-              sshPublisherDesc(
-               configName: "server_rousseau",
-               verbose: true,
-               transfers: [
-                sshTransfer(
-                 sourceFiles: "*.html",
-                 remoteDirectory: "/"
-                )
-               ])
-            ]
-        )
+
         //Copy file html on the server
         stage('Move HTML content in apache2'){
             steps{
-                sh 'rm -rf /out/*'
                 sh 'mv ./out /out'
+                sh 'rm -rf /out/*'
+            }
+
+        }
+
+        //Copy file html on the server nicolas rousseau
+        stage('Move HTML content in server_rousseau'){
+            steps{
+                //Copy file ssh
+                sshPublisher(
+                    continueOnError: false, failOnError: true,
+                    publishers: [
+                      sshPublisherDesc(
+                       configName: "server_rousseau",
+                       verbose: true,
+                       transfers: [
+                        sshTransfer(
+                         sourceFiles: "/out/*.html",
+                         remoteDirectory: "/"
+                        )
+                       ])
+                    ]
+                )
+
             }
         }
+
+
 
         stage('SonarQube Analysis'){
             steps{
