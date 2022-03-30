@@ -37,7 +37,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>fr.epsi.netflix.MovieGenerator</mainClass>
+                            <mainClass>fr.epsi.sonar_netflix_victor.MovieGenerator</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

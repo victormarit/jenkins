@@ -1,7 +1,6 @@
-package fr.epsi.netflix;
+package fr.epsi.sonar_netflix_victor;
 
 import java.io.*;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;

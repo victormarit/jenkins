@@ -25,9 +25,6 @@ pipeline {
         }
 
 
-        //SonarQube
-
-
         //Execute jar
         stage('Run'){
             steps{

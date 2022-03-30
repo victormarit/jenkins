@@ -1,4 +1,4 @@
-package fr.epsi.netflix;
+package fr.epsi.sonar_netflix_victor;
 
 import java.time.LocalDate;
 
