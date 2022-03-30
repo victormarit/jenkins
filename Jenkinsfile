@@ -53,7 +53,7 @@ pipeline {
                        verbose: true,
                        transfers: [
                         sshTransfer(
-                         sourceFiles: "./out/*.html",
+                         sourceFiles: "out/*.html",
                          remoteDirectory: "/"
                         )
                        ])
