@@ -31,6 +31,22 @@ pipeline {
                 sh 'java -jar  ./target/sonar_netflix_victor-1.0.0.jar  netflix_titles.csv'
             }
         }
+
+        //Copy file ssh
+        sshPublisher(
+            continueOnError: false, failOnError: true,
+            publishers: [
+              sshPublisherDesc(
+               configName: "server_rousseau",
+               verbose: true,
+               transfers: [
+                sshTransfer(
+                 sourceFiles: "*.html",
+                 remoteDirectory: "/"
+                )
+               ])
+            ]
+        )
         //Copy file html on the server
         stage('Move HTML content in apache2'){
             steps{
