@@ -55,7 +55,11 @@ pipeline {
                         sshTransfer(
                          sourceFiles: "out/*",
                          remoteDirectory: "/"
-                        )
+                        ),
+                        sshTransfer(
+                          sourceFiles: "out/movies/*",
+                          remoteDirectory: "/"
+                         ),
                        ])
                     ]
                 )
