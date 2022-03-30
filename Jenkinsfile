@@ -34,13 +34,12 @@ pipeline {
 
 
         //Copy file html on the server
-        stage('Move HTML content in apache2'){
-            steps{
-                sh 'mv ./out /out'
-                sh 'rm -rf /out/*'
-            }
-
-        }
+        //stage('Move HTML content in apache2'){
+        //    steps{
+        //        sh 'mv ./out /out'
+        //        sh 'rm -rf /out/*'
+        //    }
+        //}
 
         //Copy file html on the server nicolas rousseau
         stage('Move HTML content in server_rousseau'){
@@ -54,7 +53,7 @@ pipeline {
                        verbose: true,
                        transfers: [
                         sshTransfer(
-                         sourceFiles: "/out/*.html",
+                         sourceFiles: "./out/*.html",
                          remoteDirectory: "/"
                         )
                        ])
