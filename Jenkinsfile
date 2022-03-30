@@ -41,18 +41,13 @@ pipeline {
                 sh 'mv ./out /out'
             }
         }
-
-        //Clean Workplace
-        post {
-            steps(
-                step([$class: 'JacocoPublisher'])
-            )
-            success {
-                cleanWs deleteDirs: true
-            }
-
-
+    }
+    post {
+        cleanup {
+            cleanWs deleteDirs: true
         }
-
+        success{
+            step([$class: 'JacocoPublisher'])
+        }
     }
 }
